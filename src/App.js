@@ -66,14 +66,14 @@ function App() {
           path="/"
           element={
             <TextForm
-              label="Enter Text to analyze the data"
+              label="Try Text-utils word counter and character and analyse the data"
               style1={style}
               showAlert={showAlert}
               colortheme={colortheme}
             />
           }
         ></Route>
-        <Route path="/about" element={<About />}></Route>
+        <Route path="/about" element={<About mode={mode} style={style}/>}></Route>
       </Routes>
     </BrowserRouter>
   );

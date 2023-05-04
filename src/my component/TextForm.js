@@ -36,6 +36,7 @@ function TextForm(props) {
     let text = document.getElementById("text");
     text.select();
     document.execCommand("copy");
+    document.getSelection().removeAllRanges()
     let type = "success";
     let msg = "Text copied";
     props.showAlert(msg, type);
@@ -43,7 +44,7 @@ function TextForm(props) {
   return (
     <div
       className="container my-3"
-      style={{ color: props.style1.color == "black" ? "black" : "white" }}
+      style={{ color: props.style1.color === "black" ? "black" : "white" }}
     >
       <div className="mx" style={{ width: "70%" }}>
         <h4>
@@ -58,63 +59,74 @@ function TextForm(props) {
           onChange={eventHandle}
           style={{
             backgroundColor:
-              props.style1.backgroundColor == "black" ? "grey" : "white",
-            color: props.style1.color == "black" ? "black" : "white",
+              props.style1.backgroundColor === "black" ? "grey" : "white",
+            color: props.style1.color === "black" ? "black" : "white",
           }}
         ></textarea>
         <button
           type="submit"
+          disabled={text.length === 0}
           onClick={handleOnClick}
           ConvertUppercase
           className="btn btn-primary mx-2 my-2"
-          style={{backgroundColor:`${props.colortheme}`}}
+          style={{ backgroundColor: `${props.colortheme}` }}
         >
           Convert uppercase
         </button>
         <button
+          disabled={text.length === 0}
           type="submit"
           onClick={handleOnlower}
-          style={{backgroundColor:`${props.colortheme}`}}
+          style={{ backgroundColor: `${props.colortheme}` }}
           className="btn btn-primary mx-2 my-2"
         >
           Convert Lowercase
         </button>
         <button
+          disabled={text.length === 0}
           type="submit"
           onClick={handleOnclear}
           className="btn btn-primary mx-2 my-2"
-          style={{backgroundColor:`${props.colortheme}`}}
+          style={{ backgroundColor: `${props.colortheme}` }}
         >
           Clear
         </button>
         <button
+          disabled={text.length === 0}
           type="submit"
           onClick={handleOnremoveSpace}
           className="btn btn-primary mx-2 my-2"
-          style={{backgroundColor:`${props.colortheme}`}}
+          style={{ backgroundColor: `${props.colortheme}` }}
         >
           Remove Extra space
         </button>
         <button
+          disabled={text.length === 0}
           type="submit"
           onClick={handleOnCopy}
           className="btn btn-primary mx-2 my-2"
-          style={{backgroundColor:`${props.colortheme}`}}
+          style={{ backgroundColor: `${props.colortheme}` }}
         >
           Copy
         </button>
-        
       </div>
       <div className="container">
         <h2>Text Summary</h2>
         <p>
-          {text.split(" ").length - 1} words and {text.length} characters
+          {text.split(" ").filter((ele) => ele.length !== 0).length} words and{" "}
+          {text.length} characters
         </p>
-        <p>time taken to read the {0.008 * (text.split(" ").length-1)} minutes</p>
-        <h4>Preview</h4>
+        <p>
+          time taken to read the{" "}
+          {0.008 *
+            text.split(" ").filter((ele) => {
+              return ele.length !== 0;
+            }).length}{" "}
+          minutes
+        </p>
+        <h5>{text.length===0?'Nothing to preview':text}</h5>
         <h6>{text}</h6>
       </div>
     </div>
-  );
-}
+  )}
 export default TextForm;

@@ -1,40 +1,12 @@
-import React, { useState } from "react";
-import ReactSwitch from "react-switch";
-export const About = () => {
-  const [checked, setChecked] = useState(true);
-  let [styling, setstyle] = useState({
-    backgroundColor: "black",
-    color: "white",
-    border: "white solid 2px",
-  });
-  let [btnMsg, setbtnMsg] = useState("Enable dark mode");
-  const handleChange = () => {
-    if (checked) {
-      setbtnMsg("Enable dark mode");
-      setChecked(false);
-      setstyle({
-        backgroundColor: "white",
-        color: "black",
-        border: "white solid 2px",
-      });
-    } else {
-      setChecked(true);
-      setbtnMsg("Enable light mode");
-      setstyle({
-        backgroundColor: "black",
-        color: "white",
-        border: "white solid 2px",
-      });
-    }
-  };
+export const About = (props) => {
   return (
-    <div className="" style={styling}>
-      <div className="container my-5">
-        <div className="accordion" id="accordionExample">
+    <div >
+      <div className="container my-5"  >
+        <div className="accordion" id="accordionExample" style={props.style}>
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
-                style={styling}
+                style={props.style}
                 className="accordion-button"
                 type="button"
                 data-bs-target="#collapseOne"
@@ -49,7 +21,7 @@ export const About = () => {
               className="accordion-collapse collapse show"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body" style={styling}>
+              <div className="accordion-body" style={props.style}>
                 <strong>This is the first item's accordion body.</strong> It is
                 shown by default, until the collapse plugin adds the appropriate
                 classNamees that we use to style each element. These classNamees
@@ -65,7 +37,7 @@ export const About = () => {
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
-                style={styling}
+                style={props.style}
                 className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
@@ -81,7 +53,7 @@ export const About = () => {
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body">
+              <div className="accordion-body" style={props.style}>
                 <strong>This is the second item's accordion body.</strong> It is
                 hidden by default, until the collapse plugin adds the
                 appropriate classNamees that we use to style each element. These
@@ -97,7 +69,7 @@ export const About = () => {
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
-                style={styling}
+                style={props.style}
                 className="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
@@ -113,7 +85,7 @@ export const About = () => {
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body">
+              <div className="accordion-body" style={props.style}>
                 <strong>This is the third item's accordion body.</strong> It is
                 hidden by default, until the collapse plugin adds the
                 appropriate classNamees that we use to style each element. These
@@ -127,11 +99,11 @@ export const About = () => {
             </div>
           </div>
         </div>
-        <div className="container my-3">
+        {/* <div className="container my-3">
           <h4>{btnMsg}</h4>
           <ReactSwitch checked={checked} onChange={handleChange} />
           
-        </div>
+        </div> */}
       </div>
     </div>
   );
