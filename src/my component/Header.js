@@ -161,14 +161,6 @@ function Header(props) {
                 </div>
                 <div className="mx-2"></div>
               </div>
-              {/* <h5 className="mx-3">
-                  enable {`${props.checked ? "Dark" : "light"}`} mode
-                </h5>
-
-                <ReactSwitch
-                  checked={props.checked}
-                  onChange={props.onToggle}
-                /> */}
             </div>
           </div>
         </div>
@@ -177,15 +169,3 @@ function Header(props) {
   );
 }
 export default Header;
-
-// //today's task(4/23)
-// MongoDB
-// ->Fixing the problem to install MongoDB
-// ->Install the mongo compass tool
-// Node js
-// ->Work on middleware
-// Reactjs
-// ->Fix the bug of local host project text utils
-// ->adding some functionlity text utils
-// js
-// ->Strict mode

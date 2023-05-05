@@ -36,7 +36,7 @@ function TextForm(props) {
     let text = document.getElementById("text");
     text.select();
     document.execCommand("copy");
-    document.getSelection().removeAllRanges()
+    document.getSelection().removeAllRanges();
     let type = "success";
     let msg = "Text copied";
     props.showAlert(msg, type);
@@ -113,20 +113,22 @@ function TextForm(props) {
       <div className="container">
         <h2>Text Summary</h2>
         <p>
-          {text.split(" ").filter((ele) => ele.length !== 0).length} words and{" "}
+          {text.split(/\s+/).filter((ele) => ele.length !== 0).length} words and{" "}
           {text.length} characters
         </p>
         <p>
           time taken to read the{" "}
           {0.008 *
-            text.split(" ").filter((ele) => {
+            text.split(/\s+/).filter((ele) => {
               return ele.length !== 0;
             }).length}{" "}
           minutes
         </p>
-        <h5>{text.length===0?'Nothing to preview':text}</h5>
-        <h6>{text}</h6>
+        <div style={{overflowWrap:'anywhere'}}>
+          <h6>{text.length === 0 ? "Nothing to preview" : text}</h6>
+        </div>
       </div>
     </div>
-  )}
+  );
+}
 export default TextForm;

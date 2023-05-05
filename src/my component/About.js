@@ -1,21 +1,27 @@
+import "../css/about.css"
 export const About = (props) => {
   return (
     <div >
       <div className="container my-5"  >
-        <div className="accordion" id="accordionExample" style={props.style}>
+        <div className="accordion" id="accordionExample" style={props.style}>    
+          {/* //-- */}
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
                 style={props.style}
-                className="accordion-button"
+                className="accordion-button collapsed"
                 type="button"
+                data-bs-toggle="collapse"
                 data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
               >
                 Accordion Item #1
               </button>
             </h2>
+            
+            
+            
             <div
               id="collapseOne"
               className="accordion-collapse collapse show"
@@ -34,6 +40,8 @@ export const About = (props) => {
               </div>
             </div>
           </div>
+
+          
           <div className="accordion-item">
             <h2 className="accordion-header">
               <button
@@ -48,6 +56,8 @@ export const About = (props) => {
                 Accordion Item #2
               </button>
             </h2>
+            
+            
             <div
               id="collapseTwo"
               className="accordion-collapse collapse"
