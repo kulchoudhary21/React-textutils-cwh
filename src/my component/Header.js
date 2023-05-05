@@ -1,8 +1,7 @@
 import "../../src/header.css";
 import { Link } from "react-router-dom";
-import ReactSwitch from "react-switch";
-
-
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NightlightIcon from "@mui/icons-material/Nightlight";
 function Header(props) {
   return (
     <>
@@ -43,26 +42,134 @@ function Header(props) {
                 </Link>
               </li>
             </ul>
-            <form className="d-flex" role="search">
-              <div className="container" style={{ display: "contents" }}>
-                <input
-                  class="form-input"
-                  type="color"
-                  name="clr"
-                  id="color"
-                  onChange={props.getColor}
-                />
-
-                <label class="form-check-label mx-2">change theme</label>
-                <h5 className="mx-3">
+            <div className="container mx-2" style={{ display: "contents" }}>
+              <input
+                className="form-input"
+                type="color"
+                name="clr"
+                id="color"
+                onChange={props.getColor}
+              />
+              <label className="form-check-label mx-2">change theme</label>
+              <div
+                className="mx-3"
+                style={{
+                  borderLeft: "3px solid grey ",
+                  height: "25px",
+                  left: "50%",
+                }}
+              ></div>
+              <div className="d-flex">
+                <div
+                  className="mx-2"
+                  style={{
+                    cursor: "pointer",
+                    background: "blue",
+                    height: "20px",
+                    width: "20px",
+                    alignItems: "center",
+                    border: "1px solid",
+                  }}
+                  onClick={() => {
+                    props.onToggle("primary");
+                  }}
+                ></div>
+                <div
+                  className="mx-2"
+                  style={{
+                    cursor: "pointer",
+                    background: "green",
+                    height: "20px",
+                    width: "20px",
+                    alignItems: "center",
+                    border: "1px solid",
+                  }}
+                  onClick={() => {
+                    props.onToggle("success");
+                  }}
+                ></div>
+                <div
+                  className="mx-2"
+                  style={{
+                    cursor: "pointer",
+                    background: "yellow",
+                    height: "20px",
+                    width: "20px",
+                    alignItems: "center",
+                    border: "1px solid",
+                  }}
+                  onClick={() => {
+                    props.onToggle("warning");
+                  }}
+                ></div>
+                <div
+                  className="mx-2"
+                  style={{
+                    cursor: "pointer",
+                    background: "red",
+                    height: "20px",
+                    width: "20px",
+                    alignItems: "center",
+                    border: "1px solid",
+                  }}
+                  onClick={() => {
+                    props.onToggle("danger");
+                  }}
+                ></div>
+                <div
+                  className="mx-2"
+                  style={{
+                    cursor: "pointer",
+                    background: "pink",
+                    height: "20px",
+                    width: "20px",
+                    alignItems: "center",
+                    border: "1px solid",
+                  }}
+                  onClick={() => {
+                    props.onToggle("secondary");
+                  }}
+                ></div>
+              </div>
+              <div
+                className="mx-3"
+                style={{
+                  borderLeft: "3px solid grey ",
+                  height: "25px",
+                  left: "50%",
+                }}
+              ></div>
+              <div className="d-flex mx-1">
+                <div className="mx-2">
+                  {props.checked ? (
+                    <button
+                      onClick={() => {
+                        props.onToggleMode();
+                      }}
+                    >
+                      <NightlightIcon />
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
+                        props.onToggleMode();
+                      }}
+                    >
+                      <LightModeIcon />
+                    </button>
+                  )}
+                </div>
+                <div className="mx-2"></div>
+              </div>
+              {/* <h5 className="mx-3">
                   enable {`${props.checked ? "Dark" : "light"}`} mode
                 </h5>
+
                 <ReactSwitch
                   checked={props.checked}
                   onChange={props.onToggle}
-                />
-              </div>
-            </form>
+                /> */}
+            </div>
           </div>
         </div>
       </nav>
@@ -71,9 +178,14 @@ function Header(props) {
 }
 export default Header;
 
-// Header.propTypes = {
-//   title: propTypes.string.isRequired,
-// };
-// Header.defaultProps = {
-//   title: "TextU",
-// };
+// //today's task(4/23)
+// MongoDB
+// ->Fixing the problem to install MongoDB
+// ->Install the mongo compass tool
+// Node js
+// ->Work on middleware
+// Reactjs
+// ->Fix the bug of local host project text utils
+// ->adding some functionlity text utils
+// js
+// ->Strict mode
